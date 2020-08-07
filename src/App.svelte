@@ -1,4 +1,4 @@
-<header role="banner">
+<header role="banner" class="[ site-head ] [ bg-tertiary-glare ]">
   <div class="wrapper">
     <div class="site-head__inner">
       <h1 class="text-600">Account overview</h1>
@@ -152,7 +152,7 @@
           </tbody>
         </table>
       </section>
-      <section class="[ summary ] [ flow radius ]">
+      <section class="[ summary ] [ flow radius ] [ bg-primary color-light ]">
         <h3 class="color-tertiary-glare text-700">Summary</h3>
         <dl class="flow">
           <dt class="text-600 color-tertiary-glare">Balance</dt>
