@@ -1,168 +1,21 @@
-<header role="banner" class="[ site-head ] [ bg-tertiary-glare ]">
-  <div class="wrapper">
-    <div class="site-head__inner">
-      <h1 class="text-600">Account overview</h1>
-      <div class="user">
-        <a href="#">My profile</a>
-        <img
-          src="/images/profile-image.jpg"
-          width="50"
-          height="50"
-          alt="Profile image for Lorem Ipsum" />
-      </div>
-    </div>
-  </div>
-</header>
+<script>
+  import SiteHeader from "./SiteHeader.svelte";
+  import KeyHeader from "./KeyHeader.svelte";
+  import Summary from "./Summary.svelte";
+  import TableGroup from "./TableGroup.svelte";
+</script>
+
+<style>
+
+</style>
+
+<SiteHeader />
 <main>
   <article class="wrapper">
-    <div class="[ key-header ] [ splitter ] [ gap-top-700 ]">
-      <h2 class="text-700" id="transaction-label">Latest transactions</h2>
-      <aside>
-        <a href="#" class="[ button ] [ radius ]" data-variant="ghost">
-          Get statement
-        </a>
-        <a href="#" class="[ button ] [ radius ]">Make payment</a>
-      </aside>
-    </div>
+    <KeyHeader />
     <div class="[ splitter ] [ gap-top-600 ]">
-      <section
-        class="[ table-group ] [ flow radius ]"
-        aria-labelledby="transaction-label">
-        <h3 class="color-secondary-shade text-400 weight-medium">
-          14th July 2020
-        </h3>
-        <table>
-          <thead class="visually-hidden">
-            <tr>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-tertiary color-light ]">
-                  Expenses
-                </span>
-              </td>
-              <td>-£123.40</td>
-            </tr>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£70.40</td>
-            </tr>
-            <tr>
-              <td data-type="bill">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£333.33</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3 class="color-secondary-shade text-400 weight-medium">
-          13th July 2020
-        </h3>
-        <table>
-          <thead class="visually-hidden">
-            <tr>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-tertiary color-light ]">
-                  Expenses
-                </span>
-              </td>
-              <td>-£123.40</td>
-            </tr>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£70.40</td>
-            </tr>
-            <tr>
-              <td data-type="bill">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£333.33</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3 class="color-secondary-shade text-400 weight-medium">
-          12th July 2020
-        </h3>
-        <table>
-          <thead class="visually-hidden">
-            <tr>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-tertiary color-light ]">
-                  Expenses
-                </span>
-              </td>
-              <td>-£123.40</td>
-            </tr>
-            <tr>
-              <td data-type="expense">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£70.40</td>
-            </tr>
-            <tr>
-              <td data-type="bill">Lorem ipsum dolor sit amet</td>
-              <td>
-                <span class="[ pill ] [ radius bg-quaternary color-light ]">
-                  Bills
-                </span>
-              </td>
-              <td>-£333.33</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="[ summary ] [ flow radius ] [ bg-primary color-light ]">
-        <h3 class="color-tertiary-glare text-700">Summary</h3>
-        <dl class="flow">
-          <dt class="text-600 color-tertiary-glare">Balance</dt>
-          <dd class="text-700 font-mono weight-bold">£673.43</dd>
-          <dt class="text-600 color-tertiary-glare">Total outgoings</dt>
-          <dd class="text-700 font-mono weight-bold">-£874.88</dd>
-          <dt class="text-600 color-tertiary-glare">Total income</dt>
-          <dd class="text-700 font-mono weight-bold">+£1548.31</dd>
-        </dl>
-      </section>
+      <TableGroup />
+      <Summary balance={673.43} outgoings={874.88} income={1548.31} />
     </div>
   </article>
 </main>

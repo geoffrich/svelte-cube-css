@@ -1,0 +1,11 @@
+// Sass mixins/functions for use by Svelte components
+@import 'config';
+
+// Do not import tokens, those will be included in the global SCSS.
+$outputTokenCSS: false;
+@import '../node_modules/gorko/gorko.scss';
+
+// This needs to be extended by a component
+// Only import classes you need to extend, otherwise compilation will take longer
+// due to stripping out the duplicate CSS
+@import './utilities/radius';

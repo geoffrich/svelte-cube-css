@@ -1,0 +1,52 @@
+<script>
+  export let variant = null;
+  export let href = null;
+</script>
+
+<style lang="scss">
+  .button {
+    @import "../scss/helpers";
+    @extend .radius;
+
+    font: inherit;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid get-color("secondary");
+    background: get-color("secondary");
+    padding: 0.6rem 1.5rem;
+    position: relative;
+
+    @include apply-utility("weight", "bold");
+
+    &[data-variant="ghost"] {
+      border-color: currentColor;
+      background: transparent;
+    }
+
+    &:focus {
+      outline-offset: -0.4rem;
+      outline: 1px solid;
+    }
+
+    &:hover {
+      background: get-color("primary");
+      border-color: get-color("primary");
+      color: get-color("light");
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+</style>
+
+{#if href}
+  <a {href} class="[ button ] [ radius ]" data-variant={variant}>
+    <slot />
+  </a>
+{:else}
+  <button class="[ button ] [ radius ]" data-variant={variant}>
+    <slot />
+  </button>
+{/if}
