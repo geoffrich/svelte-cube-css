@@ -1,3 +1,93 @@
+<script>
+  export let transactions = [
+    {
+      date: "2020-07-15",
+      description: "Lorem ipsum dolor sit amet",
+      type: "expense",
+      amount: -123.4,
+    },
+    {
+      date: "2020-07-15",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -70.4,
+    },
+    {
+      date: "2020-07-15",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -333.33,
+    },
+    {
+      date: "2020-07-14",
+      description: "Lorem ipsum dolor sit amet",
+      type: "expense",
+      amount: -123.4,
+    },
+    {
+      date: "2020-07-14",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -70.4,
+    },
+    {
+      date: "2020-07-14",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -333.33,
+    },
+    {
+      date: "2020-07-13",
+      description: "Lorem ipsum dolor sit amet",
+      type: "expense",
+      amount: -123.4,
+    },
+    {
+      date: "2020-07-13",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -70.4,
+    },
+    {
+      date: "2020-07-13",
+      description: "Lorem ipsum dolor sit amet",
+      type: "bill",
+      amount: -333.33,
+    },
+  ];
+
+  const groupedTransactions = transactions.reduce((map, current) => {
+    if (current.date in map) {
+      map[current.date].push(current);
+    } else {
+      map[current.date] = [current];
+    }
+    return map;
+  }, {});
+
+  const transactionCategoryMap = {
+    expense: "expenses",
+    bill: "bills",
+  };
+
+  function getTransactionCategory(type) {
+    return transactionCategoryMap[type];
+  }
+
+  function formatDateString(dateString) {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+  }
+
+  function formatCurrency(number) {
+    return new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+    }).format(number);
+  }
+</script>
+
 <style lang="scss">
   @import "../scss/helpers";
   .table-group {
@@ -33,126 +123,44 @@
   td:nth-child(3) {
     text-align: right;
   }
+
+  tr[data-type="expense"] .pill {
+    background: get-color("tertiary");
+  }
+
+  tr[data-type="bill"] .pill {
+    background: get-color("quaternary");
+  }
 </style>
 
 <section
   class="[ table-group ] [ flow radius ]"
   aria-labelledby="transaction-label">
-  <h3 class="color-secondary-shade text-400 weight-medium">14th July 2020</h3>
-  <table>
-    <thead class="visually-hidden">
-      <tr>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-tertiary color-light ]">
-            Expenses
-          </span>
-        </td>
-        <td>-£123.40</td>
-      </tr>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£70.40</td>
-      </tr>
-      <tr>
-        <td data-type="bill">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£333.33</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 class="color-secondary-shade text-400 weight-medium">13th July 2020</h3>
-  <table>
-    <thead class="visually-hidden">
-      <tr>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-tertiary color-light ]">
-            Expenses
-          </span>
-        </td>
-        <td>-£123.40</td>
-      </tr>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£70.40</td>
-      </tr>
-      <tr>
-        <td data-type="bill">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£333.33</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 class="color-secondary-shade text-400 weight-medium">12th July 2020</h3>
-  <table>
-    <thead class="visually-hidden">
-      <tr>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-tertiary color-light ]">
-            Expenses
-          </span>
-        </td>
-        <td>-£123.40</td>
-      </tr>
-      <tr>
-        <td data-type="expense">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£70.40</td>
-      </tr>
-      <tr>
-        <td data-type="bill">Lorem ipsum dolor sit amet</td>
-        <td>
-          <span class="[ pill ] [ radius bg-quaternary color-light ]">
-            Bills
-          </span>
-        </td>
-        <td>-£333.33</td>
-      </tr>
-    </tbody>
-  </table>
+  {#each Object.keys(groupedTransactions) as date}
+    <h3 class="color-secondary-shade text-400 weight-medium">
+      {formatDateString(date)}
+    </h3>
+    <table>
+      <thead class="visually-hidden">
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#each groupedTransactions[date] as transaction}
+          <tr data-type={transaction.type}>
+            <td>{transaction.description}</td>
+            <td>
+              <span class="[ pill ] [ radius color-light ]">
+                {getTransactionCategory(transaction.type)}
+              </span>
+            </td>
+            <td>{formatCurrency(transaction.amount)}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  {/each}
 </section>
