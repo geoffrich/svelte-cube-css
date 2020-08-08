@@ -41,6 +41,7 @@
   }
 </style>
 
+<!-- Enhancement -- render link or button depending on if consumer provided href -->
 {#if href}
   <a {href} class="[ button ] [ radius ]" data-variant={variant}>
     <slot />

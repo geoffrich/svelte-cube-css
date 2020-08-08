@@ -131,6 +131,8 @@
     text-align: right;
   }
 
+  // This was originally a fallback if no utility background class was provided
+  // Now we let this be the default and override it based on the type
   tr .pill {
     background: get-color("grey");
   }
@@ -176,6 +178,7 @@
       </thead>
       <tbody>
         {#each groupedTransactions[date] as transaction}
+          <!-- data-type has been moved to a higher level than the original demo -->
           <tr data-type={transaction.type}>
             <td>{transaction.description}</td>
             <td>

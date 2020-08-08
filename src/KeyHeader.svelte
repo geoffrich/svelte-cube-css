@@ -30,7 +30,6 @@
 <div class="[ key-header ] [ splitter ] [ gap-top-700 ]">
   <h2 class="text-700" id="transaction-label">Latest transactions</h2>
   <aside>
-
     <Button href="#" variant="ghost">Get statement</Button>
     <Button href="#">Make payment</Button>
   </aside>
