@@ -19,6 +19,12 @@
       amount: -333.33,
     },
     {
+      date: "2020-07-15",
+      description: "Lorem ipsum dolor sit amet",
+      type: "other",
+      amount: -333.33,
+    },
+    {
       date: "2020-07-14",
       description: "Lorem ipsum dolor sit amet",
       type: "expense",
@@ -71,7 +77,8 @@
   };
 
   function getTransactionCategory(type) {
-    return transactionCategoryMap[type];
+    const category = transactionCategoryMap[type];
+    return category ? category : type;
   }
 
   function formatDateString(dateString) {
@@ -124,12 +131,31 @@
     text-align: right;
   }
 
+  tr .pill {
+    background: get-color("grey");
+  }
+
   tr[data-type="expense"] .pill {
     background: get-color("tertiary");
   }
 
   tr[data-type="bill"] .pill {
     background: get-color("quaternary");
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 0.3rem 0.35rem;
+    font-size: get-size("400");
+    text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+
+    // Capitalize only in english
+    :global([lang*="en"]) & {
+      text-transform: capitalize;
+    }
   }
 </style>
 
