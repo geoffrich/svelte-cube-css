@@ -1,4 +1,5 @@
 <style lang="scss">
+  @import "../scss/helpers";
   .user {
     display: inline-grid;
     align-items: center;

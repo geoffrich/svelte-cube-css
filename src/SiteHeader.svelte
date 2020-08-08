@@ -4,7 +4,7 @@
 
 <style lang="scss">
   .site-head {
-    padding: 0.8rem 0;
+    padding: 0.4rem 0 0.8rem 0;
 
     &__inner {
       display: flex;
