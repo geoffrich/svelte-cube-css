@@ -84,7 +84,7 @@
   function formatDateString(dateString) {
     const date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
-    return date.toLocaleDateString(undefined, options);
+    return date.toLocaleDateString("en-GB", options);
   }
 
   function formatCurrency(number) {
